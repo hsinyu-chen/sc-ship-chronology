@@ -1,0 +1,128 @@
+:root {
+    --color: #92D2EA;
+    --background-color: #081116;
+    --light-color: #{rgba(#92D2EA, 0.5)};
+    --light-color-2: #{rgba(#92D2EA, 0.2)};
+}
+
+*,
+*::after,
+*::before {
+    font-family: univia-pro;
+    box-sizing: border-box;
+}
+
+* {
+    &::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(100, 100, 100, 0.5);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #777;
+    }
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--color);
+}
+
+a {
+    color: var(--color);
+    &:visited {
+        color: var(--color);
+    }
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--light-color-2);
+    padding: 0 4px;
+    margin: 2px;
+    border-radius: 2px;
+}
+
+.text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    >* {
+        flex-shrink: 0;
+    }
+    max-width: 100%;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    width: 99vw;
+    max-width: 99vw;
+    .year-row {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        margin: 10px 0;
+        border-bottom: 1px solid var(--light-color);
+        .year {
+            font-weight: bold;
+            font-size: 200%;
+            flex-shrink: 0;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ship-list {
+            display: flex;
+            flex-direction: row;
+            min-width: 0;
+            flex: 1 1 auto;
+            overflow-x: auto;
+            .ship {
+                display: flex;
+                flex-direction: column;
+                flex-shrink: 0;
+                margin: 5px;
+                >* {
+                    flex-shrink: 0;
+                }
+                width: 250px;
+                border: 1px solid var(--light-color);
+                border-radius: 5px 5px 0 0;
+                overflow: hidden;
+                .image {
+                    height: 150px;
+                    background-position: center;
+                    background-size: cover;
+                }
+                .name {
+                    font-size: 120%;
+                }
+                .row {
+                    &.legend {
+                        font-size: 60%;
+                        font-weight: 300;
+                        opacity: 0.7;
+                    }
+                    display: flex;
+                    max-width: 100%;
+                    flex-wrap: wrap;
+                    margin: 2px 0;
+                    padding: 0 2px;
+                    >* {
+                        flex-shrink: 0;
+                    }
+                }
+            }
+        }
+    }
+}
